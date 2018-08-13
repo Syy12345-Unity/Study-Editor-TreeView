@@ -18,10 +18,13 @@ public class StudyTreeView : TreeView {
             parent,
             new TreeViewItem(id:3, depth:0, displayName:"Parent2"),
         };
-        parent.children = new List<TreeViewItem>
+        parent.children = new List<TreeViewItem>();
+        int childIdBase = 10000;
+        for (int i = 0; i < 30; i++)
         {
-            new TreeViewItem(id:4, depth:1, displayName:"child"),
-        };
+            parent.children.Add(new TreeViewItem(id: childIdBase + i, depth: 1, displayName: "child" + i));
+        }
+
         return root;
     }
 }
