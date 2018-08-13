@@ -23,6 +23,8 @@ public class StudyTreeWindow : EditorWindow {
 
     void OnGUI()
     {
-        treeView.OnGUI(new Rect(0, 0, position.width, position.height));
+        treeView.searchString = EditorGUILayout.TextField("Search", treeView.searchString);
+        var lastRect = GUILayoutUtility.GetLastRect();
+        treeView.OnGUI(new Rect(0, lastRect.yMax, position.width, position.height));
     }
 }
